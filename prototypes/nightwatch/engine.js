@@ -50,7 +50,7 @@ const save=(key,value)=>{try{localStorage.setItem(KEY+key,JSON.stringify(value))
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 function rng(seed){let s=seed>>>0||1234567;return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return(s>>>0)/4294967296}};
 const canvas=$('#battlefield'),ctx=canvas.getContext('2d');
-let s=null,idSeq=0,lastTime=0,now=0,visualTime=0,frameId=0,toastTimer=null,modalMode='',gamePaused=false,speed=1;
+let s=null,idSeq=0,lastTime=0,now=0,visualTime=0,frameId=0,toastTimer=null,modalMode='',gamePaused=false,pausedByDialog=false,speed=1;
 const stars=Array.from({length:55},(_,i)=>({x:(i*613+171)%W,y:12+(i*47)%139,a:.25+(i%5)*.13,r:(i%3===0?1.6:.9)}));
 function item(type,x=null,y=null){return{id:++idSeq,type,x,y,rot:0}};
 function size(it){const def=ITEMS[it.type];return it.rot?{w:def.h,h:def.w}:{w:def.w,h:def.h}};
@@ -239,7 +239,7 @@ function render(){
  $('#bestiaryCounter').textContent=s.discovered.size+' / 8 已发现';
 }
 function openDialog(mode){
- modalMode=mode;$('#overlay').classList.remove('hidden');$('#overlay').setAttribute('aria-hidden','false');let body='',title='';
+ modalMode=mode;pausedByDialog=s&&s.phase==='battle'&&!gamePaused;if(pausedByDialog){gamePaused=true;$('#pauseBtn').textContent='▶ 继续';}$('#overlay').classList.remove('hidden');$('#overlay').setAttribute('aria-hidden','false');let body='',title='';
  if(mode==='guide'){title='新手上路 · 四步守住城门';body='<div class="guide-step"><i>1</i><div><strong>先摆装备，再开始波次</strong><p>打开下方背包，把武器拖进或点入格子。弓弩负责物理射击，法杖绕过护甲，盾牌能减轻漏怪伤害。</p></div></div><div class="guide-step"><i>2</i><div><strong>看着怪物从右边冲锋</strong><p>装备自动攻击，你可以看到弹道、血条、减速与范围爆炸。漏过城门的怪物会消耗城门生命。交战中不能重新布阵。</p></div></div><div class="guide-step"><i>3</i><div><strong>融合装备，走不同合成分支</strong><p>点击仓库两件装备的「作材料」，按配方花金币合成。合成会真正消耗旧装备，成品回到仓库；高阶装备更强，但要重新布局。</p></div></div><div class="guide-step"><i>4</i><div><strong>打过一波，领一件战利品</strong><p>战斗结束三选一领取装备，夜市同步刷新。每五波有首领；没有终点，尽量挑战最佳波次。关闭浏览器后最佳记录与怪物图鉴仍保留。</p></div></div>'}
  else if(mode==='recipes'){title='装备合成路线图';body='<p class="micro">每次消耗两件装备与金币。材料无论是否装备都可以合成，输出装备自动回到仓库。<strong>合成是选择，不总是强化：</strong>高阶装备可能失去低阶物品的相邻光环效果。</p>';
  for(const tier of [2,3,4]){const recipes=RECIPES.filter(r=>ITEMS[r[2]].tier===tier);
@@ -257,7 +257,7 @@ function openDialog(mode){
  if($('#restartBtn'))$('#restartBtn').onclick=newGame;
 }
 function openReward(){openDialog('reward')}
-function closeDialog(){if(s&&['reward','gameover'].includes(s.phase))return;$('#overlay').classList.add('hidden');modalMode=''}
+function closeDialog(){if(s&&['reward','gameover'].includes(s.phase))return;$('#overlay').classList.add('hidden');modalMode='';if(pausedByDialog&&s&&s.phase==='battle'){gamePaused=false;$('#pauseBtn').textContent='⏸ 暂停';}pausedByDialog=false}
 $('#openCraftBook').onclick=()=>openDialog('recipes');$('#openBestiary').onclick=()=>openDialog('bestiary');$('#showGuide').onclick=()=>openDialog('guide');
 $('#closeOverlay').onclick=closeDialog;$('#overlay').addEventListener('click',e=>{if(e.target===$('#overlay'))closeDialog()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDialog();if(e.key===' '&&s&&s.phase==='battle'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();pause()}});
