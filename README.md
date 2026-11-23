@@ -4,11 +4,11 @@
 
 ## 在线游玩
 
-启用 GitHub Pages 后访问：
+启用 GitHub Pages 并完成首次部署后访问：
 
 **https://klwjlalala.github.io/games/**
 
-仓库默认分支 `main` 的更新会通过 GitHub Actions 自动部署 Pages。
+首次部署前，在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。之后推送到 `main` 会自动部署。
 
 ## 游戏列表
 
@@ -21,7 +21,7 @@
 
 ## 本地运行
 
-直接打开 `index.html` 即可。也可以启动任意静态文件服务器：
+在项目目录执行：
 
 ```bash
 python -m http.server 8080
@@ -31,7 +31,7 @@ python -m http.server 8080
 
 ## 技术说明
 
-- 原生 HTML / CSS / JavaScript
+- 原生 HTML / CSS / JavaScript，按页面框架与六款游戏拆分模块
 - Canvas 仅用于爆破和矿井小游戏
 - 游戏进度保存在浏览器 `localStorage`
 - 无构建步骤、无外部运行时依赖
