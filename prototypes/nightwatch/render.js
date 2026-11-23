@@ -174,7 +174,7 @@ window.__nightwatch={
  get state(){return s},data:{items:ITEMS,recipes:RECIPES,monsters:MONSTERS},reset:newGame,build:calculate,makeWave,
  equipById:(id,x,y)=>{if(s.phase!=='prepare')return false;const it=s.items.find(x=>x.id===id);if(!it||!fits(it,x,y))return false;it.x=x;it.y=y;render();return true},
  chooseMaterial:addMaterial,craft,buy,repair,startWave,step:(dt)=>{if(s.phase==='battle'){updateBattle(dt);updateVisuals(dt)}},reward:pickReward,close:closeDialog,
- setSeed:(seed)=>{s.seed=seed;s.shop=stockFor(s.wave).map(type=>({type,sold:false}));render()},
+ setSeed:(seed)=>{s.seed=seed;s.shop=stockFor(s.wave).map(type=>({type,sold:false}));render()},draw:()=>drawScene(visualTime),
  getSnapshot:()=>({phase:s.phase,wave:s.wave,gate:s.gate,gold:s.gold,kills:s.kills,monsters:s.monsters.length,spawned:s.spawnIndex,roundSize:s.waveQueue.length,equipment:equipped().map(x=>x.type),codex:[...s.discovered],best:s.best})
 };
 newGame();
