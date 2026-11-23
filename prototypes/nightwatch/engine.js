@@ -41,7 +41,7 @@ const MONSTERS={
  mage:{name:'腐蚀祭司',icon:'🧙',hp:74,speed:49,armor:3,leak:2,bounty:5,r:25,flavor:'持续恢复附近怪物的生命。',counter:'范围伤害或优先击杀。'},
  wisp:{name:'游魂',icon:'👻',hp:53,speed:72,armor:0,leak:2,bounty:4,r:22,flavor:'物理伤害减半，且不受中毒影响。',counter:'魔法攻击和减速最有效。'},
  brute:{name:'破城巨兽',icon:'🦏',hp:166,speed:38,armor:5,leak:4,bounty:8,r:32,flavor:'厚血量与极高破门伤害。',counter:'高阶伤害配合冰霜控制。'},
- boss:{name:'永夜龙',icon:'🐉',hp:330,speed:40,armor:6,leak:7,bounty:22,r:44,flavor:'每五波出现。体型巨大，身边怪物会跑得更快。',counter:'溅射与减速并重，留足城门生命。'}
+ boss:{name:'永夜龙',icon:'🐉',hp:260,speed:40,armor:6,leak:7,bounty:22,r:44,flavor:'每五波出现。体型巨大，身边怪物会跑得更快。',counter:'溅射与减速并重，留足城门生命。'}
 };
 const BASIC=['bow','staff','shield','ember','frost','venom','whet'];
 const KEY='nightwatch_v2_';
@@ -121,7 +121,7 @@ function makeWave(wave){
  const r=rng(s.seed+wave*19777),pool=['rat'],picks=[];
  if(wave>=2)pool.push('bat');if(wave>=3)pool.push('shell');if(wave>=4)pool.push('wolf');
  if(wave>=6)pool.push('mage');if(wave>=7)pool.push('wisp');if(wave>=8)pool.push('brute');
- const count=Math.min(36,5+wave*2),bossWave=wave%5===0;
+ const count=Math.min(36,5+Math.floor(wave*1.5)),bossWave=wave%5===0;
  for(let i=0;i<count;i++){let type=pool[Math.floor(r()*pool.length)];if(wave<=2&&i<2)type='rat';
  const lane=Math.floor(r()*3),delay=.55+i*Math.max(.34,.94-wave*.025);
  picks.push({type,lane,delay})}
@@ -137,7 +137,7 @@ function startWave(){if(s.phase!=='prepare')return;const b=calculate();if(!b.wea
 function pause(){if(s.phase!=='battle')return;gamePaused=!gamePaused;$('#pauseBtn').textContent=gamePaused?'▶ 继续':'⏸ 暂停';$('#waveTag').textContent=gamePaused?'已暂停':'交战中'}
 function toggleSpeed(){if(s.phase!=='battle')return;speed=speed===1?2:1;$('#speedBtn').textContent='速度 ×'+speed}
 function encounter(m){if(!s.discovered.has(m.type)){s.discovered.add(m.type);save('codex',[...s.discovered]);if(m.type==='boss')toastBattle('⚠ 永夜龙出现了！')} }
-function spawnMonster(template){const d=MONSTERS[template.type],scale=1+(s.wave-1)*.23,boost=s.wave>5?Math.floor((s.wave-5)/5):0;
+function spawnMonster(template){const d=MONSTERS[template.type],scale=1+(s.wave-1)*.16,boost=s.wave>5?Math.floor((s.wave-5)/5):0;
  const maxHp=Math.round(d.hp*scale),monster={id:++idSeq,type:template.type,lane:template.lane,x:1046+(Math.random()*35),y:LANES[template.lane],hp:maxHp,maxHp,armor:d.armor+boost,speed:d.speed*(1+Math.min(.32,(s.wave-1)*.014)),r:d.r,leak:d.leak,bounty:d.bounty,poison:0,poisonTime:0,burn:0,burnTime:0,slow:0,slowTime:0,healCd:2,bodyTime:Math.random()*6};
  s.monsters.push(monster);encounter(monster)
 }
