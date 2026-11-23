@@ -1,0 +1,39 @@
+name: Gameplay browser regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'prototypes/**'
+      - '.github/workflows/gameplay-test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright
+        run: |
+          npm install --no-save @playwright/test
+          npx playwright install --with-deps chromium
+      - name: Start local server
+        run: |
+          python3 -m http.server 4173 >/tmp/playroom-http.log 2>&1 &
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:4173/prototypes/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/playroom-http.log
+          exit 1
+      - name: Run real Chromium interaction tests
+        run: npx playwright test prototypes/playtest.spec.cjs --workers=1 --reporter=list
