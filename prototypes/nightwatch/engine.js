@@ -1,6 +1,5 @@
 /* Nightwatch: endless backpack defense. Pure browser engine. */
 'use strict';
-(()=> {
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const W=1080,H=390,GATE=181,LANES=[209,274,337],TAU=Math.PI*2;
 const ITEMS={
