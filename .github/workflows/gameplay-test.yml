@@ -24,6 +24,8 @@ jobs:
           node-version: '22'
       - name: Run deterministic adversarial gameplay tests
         run: node prototypes/adversarial-tests.cjs
+      - name: Run nightwatch combat and synthesis simulation
+        run: node prototypes/nightwatch/simulate.cjs
       - name: Install Playwright
         run: |
           npm install --no-save @playwright/test
@@ -38,4 +40,11 @@ jobs:
           cat /tmp/playroom-http.log
           exit 1
       - name: Run real Chromium interaction tests
-        run: npx playwright test prototypes/playtest.spec.cjs --workers=1 --reporter=list
+        run: npx playwright test prototypes/playtest.spec.cjs prototypes/nightwatch/nightwatch.spec.cjs --workers=1 --reporter=list
+      - name: Upload game battle screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightwatch-browser-evidence
+          path: test-results/**
+          if-no-files-found: ignore
