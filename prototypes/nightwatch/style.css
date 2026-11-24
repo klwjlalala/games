@@ -57,3 +57,30 @@ main{max-width:1390px;padding:23px 22px 55px}.intro{margin:0 0 18px;align-items:
 .reward-card{background:radial-gradient(ellipse at 50% 15%,#70805a66,transparent 65%),linear-gradient(140deg,#3d5143,#293e35);border-color:#a1a77b;border-radius:5px;color:#e9ddbb;box-shadow:inset 0 0 0 3px #253c32;min-height:164px}.reward-card:hover{border-color:#e0cb91;background:linear-gradient(140deg,#647759,#3c5140)}.reward-card .reward-art{width:69px;height:69px}.reward-card b{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.04em}.reward-card small{color:#bac3aa}.result-view p{color:#b3bea8}.result-view .hero{font-size:38px}.tip{background:#324b3d;border-color:#d7c28e;color:#eee2bd;border-radius:5px}.footer-note{color:#859582;font-size:10px;letter-spacing:.07em}
 @media(max-width:1180px){.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.craft-panel{grid-column:1/-1}.panel>.micro{min-height:0}.forge-slot{max-width:155px}.forge-slot-row{justify-content:center}.forge-result{max-width:400px;margin:0 auto 9px}.craft-panel .full{max-width:400px;margin-left:auto;margin-right:auto;display:flex}.craft-panel .subtle{margin:7px auto 0}}
 @media(max-width:680px){main{padding:13px 9px 45px}.top{height:52px;padding:0 13px}.brand{font-size:11px;letter-spacing:.1em}.brand-glyph{width:23px;height:23px;font-size:16px;margin-right:8px}.top-meta{gap:4px}.intro h1{font-size:27px;letter-spacing:0}.intro h1 em{display:block;border-left:0;padding:0;margin:6px 0 0;font-size:15px}.intro .overline{font-size:8px;letter-spacing:.12em}.intro p{font-size:11px}.intro .button{padding:8px;font-size:10px}.arena-inner canvas{height:auto;min-height:0;max-height:none;aspect-ratio:1080/390}.arena-bar{padding:8px 9px;gap:5px}.wave-ident strong{font-size:14px}.arena-stats{gap:15px;font-size:10px}.arena-stats b{font-size:13px}.arena-controls{padding:9px}.play-buttons .button.primary{min-width:0}.play-buttons{justify-content:flex-end}.panel{padding:14px 11px}.work-grid{grid-template-columns:1fr;gap:12px;margin-top:15px}.craft-panel{grid-column:auto}.panel-top{padding-bottom:9px}.bag-grid{max-width:420px;margin:11px auto}.bag-art .gear-art{max-width:88px;max-height:88px}.bag-art .tile-rank{font-size:9px;top:3px;left:4px}.bag-art i{font-size:8px;right:4px;bottom:3px}.modal-head{padding:15px}.modal-head h2{font-size:21px}.modal-content{padding:13px}.reward-card .reward-art{width:47px;height:47px}.reward-card{min-height:85px}.codex-avatar{width:53px;min-width:53px;height:53px}.corner-note{font-size:6.5px;bottom:4px}.build-pill{display:none}.gate-caption{font-size:9px}}
+
+/* Keep battlefield and packing visible together on desktop; journal panels below. */
+@media(min-width:1181px){
+ main{display:grid;grid-template-columns:minmax(0,2.28fr) minmax(330px,1fr);grid-template-rows:auto auto auto auto;gap:16px;align-items:start;padding-top:20px}
+ .intro{grid-column:1/-1;grid-row:1;margin:0 0 1px}
+ .arena-shell{grid-column:1;grid-row:2;align-self:stretch;display:flex;flex-direction:column}
+ .arena-inner{flex:1;display:flex;align-items:center}
+ .arena-bar,.gate-rail,.arena-controls{flex-shrink:0}
+ .work-grid{display:contents}
+ .bag-panel{grid-column:2;grid-row:2;align-self:stretch}
+ .stash-panel{grid-column:1;grid-row:3;align-self:stretch}
+ .craft-panel{grid-column:2;grid-row:3;align-self:stretch}
+ .footer-note{grid-column:1/-1;grid-row:4;margin-top:7px}
+ .stash-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:330px}
+ .bag-panel .micro{min-height:0}
+ .bag-panel .build-preview{margin-top:10px;padding:10px}
+ .bag-panel .build-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+ .bag-panel .build-stat{padding:7px 3px;text-align:center}
+ .bag-panel .build-stat strong{font-size:15px}
+ .bag-panel .build-stat span{font-size:8px;line-height:1.15;display:block;margin-top:3px}
+ .bag-panel .bag-grid{max-width:340px;margin:8px auto;aspect-ratio:5/3.9}
+ .bag-panel .build-preview .micro{font-size:10px;margin-top:7px}
+ .bag-panel .panel-top{margin-bottom:6px;padding-bottom:8px}
+ .bag-panel>.micro{margin:5px 0 7px}
+ .bag-panel .bag-controls .button{padding:6px 9px}
+}
+@media(min-width:1181px) and (max-width:1340px){main{padding-left:15px;padding-right:15px;grid-template-columns:minmax(0,2.1fr) minmax(320px,1fr);gap:13px}.arena-stats{gap:12px}.arena-stats b{font-size:14px}.arena-controls{gap:7px}.play-buttons{gap:5px}.play-buttons .button{padding:9px 12px;font-size:11px}.play-buttons .button.primary{min-width:118px}.panel{padding:15px 12px}}
