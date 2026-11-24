@@ -6,6 +6,10 @@ on:
     paths:
       - 'prototypes/**'
       - '.github/workflows/gameplay-test.yml'
+  pull_request:
+    paths:
+      - 'prototypes/**'
+      - '.github/workflows/gameplay-test.yml'
   workflow_dispatch:
 
 permissions:
@@ -26,6 +30,8 @@ jobs:
         run: node prototypes/adversarial-tests.cjs
       - name: Run nightwatch combat and synthesis simulation
         run: node prototypes/nightwatch/simulate.cjs
+      - name: Verify all local Nightwatch GLB binaries
+        run: node prototypes/nightwatch/validate-assets.cjs
       - name: Install Playwright
         run: |
           npm install --no-save @playwright/test
@@ -40,7 +46,7 @@ jobs:
           cat /tmp/playroom-http.log
           exit 1
       - name: Run real Chromium interaction tests
-        run: npx playwright test prototypes/playtest.spec.cjs prototypes/nightwatch/nightwatch.spec.cjs --workers=1 --reporter=list
+        run: npx playwright test prototypes/playtest.spec.cjs prototypes/nightwatch/nightwatch.spec.cjs prototypes/nightwatch/assets.spec.cjs --workers=1 --reporter=list
       - name: Upload game battle screenshots
         if: always()
         uses: actions/upload-artifact@v4
