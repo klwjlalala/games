@@ -26,6 +26,54 @@ const ITEMS={
  apocalypse:{name:'末日天幕',icon:'☄️',tier:4,w:2,h:2,kind:'weapon',damage:67,rate:2.65,range:980,element:'magic',poison:8,burn:6,splash:105,price:75,desc:'大范围陨落轰击 · 毒火叠加'},
  aurora:{name:'极光机关',icon:'🌌',tier:4,w:2,h:2,kind:'weapon',damage:40,rate:1.03,range:980,element:'magic',slow:.65,chain:4,price:75,desc:'连锁极寒法术 · 控制快速敌人'}
 };
+
+/* Original vector miniatures: ink outlines, brass mounts and mineral colors. */
+function gearArt(type){
+ const colors={bow:'#c4ab79',staff:'#9db9e6',shield:'#b7c1a0',ember:'#e7a064',frost:'#8bcbd5',venom:'#9cba7b',whet:'#c7b5df',repeater:'#d4c093',storm:'#b6a5e7',bastion:'#c1c1ad',brazier:'#eb9458',glacial:'#a9e6e7',blight:'#b5d183',forge:'#e4c898',flamebow:'#ed985e',icebow:'#8bd9df',plague:'#b3ca82',thunderfire:'#f3b57c',citadel:'#a4cacc',furnacewall:'#dc9b6b',apocalypse:'#efa87a',aurora:'#a4e8d9'};
+ const c=colors[type]||'#c4b493',i='#1c292b',e='#f1dfb6',tier=ITEMS[type]?.tier||1;
+ const path=(d,fill,stroke=e,w=1.4)=>'<path d="'+d+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+w+'"/>';
+ const gem=(x,y,s)=>'<g transform="translate('+x+' '+y+') scale('+s+')">'+path('M0 -14 10 -5 7 10 0 15 -9 7 -11 -4Z',c)+path('M0 -14 -3 -4 7 10 10 -5Z','#f4e9c0',c,.8)+path('M-11 -4 -3 -4 0 15 -9 7Z','#5b6d6a',i,.6)+'</g>';
+ const line=(d,color=e,w=1.5)=>path(d,'none',color,w);
+ let p='';
+ if(['bow','repeater','flamebow','icebow'].includes(type)){
+ p='<g transform="rotate(-34 32 32)">'+path('M19 7Q43 15 45 32T19 57L24 53Q38 38 38 32T24 11Z',tier>1?'#657b78':'#947651')+line('M19 7 38 32 19 57')+line('M8 32h46m-5-4 7 4-7 4M9 32l6-4m-6 4 6 4',c,2.4)+path('M36 27h9v10h-9Z',c,i)+ (tier>1?line('M21 18 39 24M21 46 39 40',c,4):'')+'</g>';
+ if(type==='flamebow')p+=path('M46 8c8 6-4 12 5 19 6-6 10-10 5-17 1 12-8 9-10-2Z',c);
+ if(type==='icebow')p+=line('M48 7v19m-9-14 18 9m0-9-18 9',c,2);
+ }else if(['staff','storm','plague','thunderfire','apocalypse','aurora'].includes(type)){
+ p=path('M14 57 40 21 43 24 18 59Z','#8e7650')+line('M24 46 29 49M28 40 33 43M32 34 37 37',c,2.5)+path('M29 24 28 14 35 6 40 13 46 7 53 14 49 26 39 31Z','#536a65')+gem(41,18,.68);
+ if(tier>1)p+='<circle cx="41" cy="18" r="20" fill="none" stroke="'+c+'" stroke-width="1.2" stroke-dasharray="3 4"/>'+path('M41 1 45 8 41 12 37 8Z',c);
+ if(tier===4)p+=gem(10,22,.5)+gem(55,43,.5)+line('M15 15Q32 0 55 16M12 38Q29 56 49 42',c,2);
+ }else if(['shield','bastion','citadel','furnacewall'].includes(type)){
+ p=path('M12 13 32 6 52 13v20q-4 16-20 25Q15 50 12 33Z','#50645e',e,2)+path('M17 17 32 11 47 17v16Q43 47 32 52 20 46 17 33Z',c,i,1.5)+path('M32 12v40Q44 45 47 33V17Z','#657d72',c,.7)+path('M23 32 32 19 41 32 32 44Z','#263c3b')+line('M32 22v19m-6-9h12');
+ if(tier>1)p+=path('M11 12V5h8v5h7V4h11v6h7V5h9v8M12 34 6 41 16 39M52 34 58 41 48 39',c);
+ }else if(type==='ember'||type==='brazier'){
+ p=path('M17 51Q8 39 20 27L28 17 28 6Q45 18 38 29 45 25 48 20 58 43 45 53 31 61 17 51Z',c)+path('M26 53Q16 43 30 31L33 25 35 39 40 35Q46 48 37 53Z','#ffe3ab',c,.9)+path('M13 54h38l-6 5H19Z','#8e6b45');
+ }else if(type==='frost'||type==='glacial'){
+ p=gem(32,30,1.4)+line('M32 7v48m-20-35 40 24m0-24-40 24M32 17 26 11m6 6 6-6M32 46l-6 6m6-6 6 6',e,1.2);
+ }else if(type==='venom'||type==='blight'){
+ p=path('M24 8h16v9l-5 6v6l13 19q3 7-5 9H21q-8-2-5-9l13-19v-6l-5-6Z','#304541')+path('M19 43q13-5 26 1l4 8-6 5H21l-5-5Z',c)+path('M26 8h12v9H26Z','#b59e78')+'<circle cx="28" cy="46" r="3" fill="'+e+'"/><circle cx="37" cy="50" r="2" fill="'+e+'"/>';
+ }else{
+ p=gem(32,30,1.5)+line('M17 49 32 54 48 48M13 32 32 43 51 31',e,1.2);
+ if(type==='forge')p+='<circle cx="32" cy="30" r="24" fill="none" stroke="'+c+'" stroke-width="3" stroke-dasharray="8 4"/>';
+ }
+ return '<svg class="gear-art" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linejoin="round" stroke-linecap="round"><ellipse cx="32" cy="57" rx="23" ry="4" fill="#081114" opacity=".4"/>'+p+line('M10 13v7m-3.5-3.5h7M54 42v8m-4-4h8',c,1.1)+'</svg>';
+}
+function monsterArt(type){
+ const defs={
+ rat:['#a58b76','M12 41 7 35 15 22 27 24 39 17 52 30 52 43 37 49 22 45Z','M18 27Q6 9 18 8 28 10 26 25M39 23Q44 6 53 13 58 23 46 28'],
+ bat:['#9d85b4','M30 23 14 10 2 17 4 43 12 33 19 47 25 36 32 50 39 36 45 47 52 33 60 43 62 17 50 10 34 23Z','M22 24 22 12 29 22 35 22 42 12 42 25 44 40 32 49 20 40Z'],
+ shell:['#8cae96','M12 25 5 31 12 36 6 44 17 43 19 52 27 45 37 45 45 52 48 43 59 44 53 36 60 31 51 25 42 11 22 11Z','M19 24 32 13 45 24 49 38 32 50 15 38Z'],
+ wolf:['#b4a499','M10 9 26 20 38 20 54 9 50 32 57 42 43 42 38 56 32 52 26 56 21 42 7 42 14 32Z','M18 23 32 35 46 23 41 44 32 52 23 44Z'],
+ mage:['#b8a1c9','M10 52 16 26 25 16 32 5 39 16 48 26 54 52 39 59 25 59Z','M22 31 32 19 42 31 40 46 32 51 24 46Z'],
+ wisp:['#a8e6d9','M31 5Q48 14 51 34L57 49 44 44 37 58 31 51 24 60 17 46 7 51 14 31Q17 13 31 5Z','M24 20 18 35 26 43 38 43 46 35 38 20Z'],
+ brute:['#b5b1a1','M13 17 4 7 7 31 14 35 13 45 23 56 41 56 51 45 50 35 57 31 60 7 51 17 41 11 23 11Z','M15 32 23 17 41 17 49 32 40 48 24 48Z'],
+ boss:['#e5ad94','M8 27 1 6 23 20 26 7 32 13 38 7 41 20 63 6 56 27 60 45 41 37 39 52 32 60 25 52 23 37 4 45Z','M18 24 32 17 46 24 42 41 32 56 22 41Z'],
+ unknown:['#6b7871','M32 5 55 32 32 59 9 32Z','M25 24Q32 15 39 24T32 36v6']
+ };
+ const [c,outline,inner]=defs[type]||defs.unknown;
+ return '<svg class="monster-art" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-linecap="round"><circle cx="32" cy="32" r="30" fill="#243a39" stroke="#ac98714f"/><path d="'+outline+'" fill="'+c+'" stroke="#e4d0a5" stroke-width="1.5"/><path d="'+inner+'" fill="#314c4a" stroke="#e4d0a5" stroke-width="1.2" opacity=".84"/>'+(type==='unknown'?'<circle cx="32" cy="47" r="2" fill="#e4d0a5"/>':'<path d="M22 31 27 33 23 36ZM42 31 37 33 41 36Z" fill="#ffe4af" stroke="#945f51" stroke-width=".8"/>')+'</svg>';
+}
+
 const RECIPES=[
  ['bow','bow','repeater',4],['staff','staff','storm',4],['shield','shield','bastion',4],
  ['ember','ember','brazier',4],['frost','frost','glacial',4],['venom','venom','blight',4],['whet','whet','forge',4],
@@ -212,7 +260,7 @@ function render(){
  $('#stashCount').textContent=s.items.length+' 件';
  const occ=gridMap(),cells=[];
  for(let y=0;y<4;y++)for(let x=0;x<5;x++){const it=occ.get(x+','+y),atAnchor=it&&it.x===x&&it.y===y;let className='bag-cell'+(it?' occupied':'')+(atAnchor?' anchor':'')+(s.picked&&!it?' can-drop':'')+(it&&s.picked===it.id?' picked':'');
- cells.push('<button class="'+className+'" data-cell="'+x+','+y+'" '+(prep?'':'disabled')+' title="'+(it?ITEMS[it.type].name:'空格')+'">'+(atAnchor?ITEMS[it.type].icon:it?'◆':'')+(atAnchor?'<i>'+size(it).w+'×'+size(it).h+'</i>':'')+'</button>')}
+ cells.push('<button class="'+className+'" data-cell="'+x+','+y+'" '+(prep?'':'disabled')+' title="'+(it?ITEMS[it.type].name:'空格')+'">'+(atAnchor?'<span class="bag-art tier-'+ITEMS[it.type].tier+'" style="--iw:'+size(it).w+';--ih:'+size(it).h+'">'+gearArt(it.type)+'<span class="tile-rank">'+['','I','II','III','IV'][ITEMS[it.type].tier]+'</span><i>'+size(it).w+'×'+size(it).h+'</i></span>':'')+'</button>')}
  $('#bagGrid').innerHTML=cells.join('');
  $('#bagGrid').querySelectorAll('[data-cell]').forEach(el=>el.onclick=()=>{const [x,y]=el.dataset.cell.split(',').map(Number);clickCell(x,y)});
  $('#rotateGear').disabled=!prep||!s.picked;$('#unequipAll').disabled=!prep;
@@ -220,19 +268,19 @@ function render(){
  $('#buildStats').innerHTML=stats.map(z=>'<div class="build-stat"><strong>'+z[1]+'</strong><span>'+z[0]+'</span></div>').join('');
  $('#buildNotes').textContent=build.links.length?'已激活联动：'+[...new Set(build.links)].join(' / '):'让火种、冰晶、毒瓶和磨刀石紧贴攻击装备，才能触发联动。';
  $('#stashItems').innerHTML=s.items.map(it=>{const d=ITEMS[it.type],selected=s.picked===it.id,material=s.materials.includes(it.id);
- return '<div class="item-card tier-'+d.tier+(selected?' active':'')+(material?' material':'')+'"><div class="item-icon">'+d.icon+'</div><div class="item-info"><b>'+d.name+(it.x!==null?' · 已装备':'')+'</b><small>阶级 '+d.tier+' · '+size(it).w+'×'+size(it).h+' 格 · '+d.desc+'</small></div><div class="item-actions"><button data-equip="'+it.id+'" class="tiny-button" '+(prep?'':'disabled')+'>'+(selected?'已选中':'摆放')+'</button><button data-mat="'+it.id+'" class="tiny-button'+(material?' selected':'')+'" '+(prep?'':'disabled')+'>作材料</button><button data-sell="'+it.id+'" class="tiny-button" '+(prep?'':'disabled')+'>卖 '+Math.floor(d.price*.5)+'G</button></div></div>'
+ return '<div class="item-card tier-'+d.tier+(selected?' active':'')+(material?' material':'')+'"><div class="item-icon">'+gearArt(it.type)+'</div><div class="item-info"><b>'+d.name+(it.x!==null?' · 已装备':'')+'</b><small>阶级 '+d.tier+' · '+size(it).w+'×'+size(it).h+' 格 · '+d.desc+'</small></div><div class="item-actions"><button data-equip="'+it.id+'" class="tiny-button" '+(prep?'':'disabled')+'>'+(selected?'已选中':'摆放')+'</button><button data-mat="'+it.id+'" class="tiny-button'+(material?' selected':'')+'" '+(prep?'':'disabled')+'>作材料</button><button data-sell="'+it.id+'" class="tiny-button" '+(prep?'':'disabled')+'>卖 '+Math.floor(d.price*.5)+'G</button></div></div>'
  }).join('');
  if(!s.items.length)$('#stashItems').innerHTML='<div class="empty-state">仓库空空如也 · 可从夜市购买装备</div>';
  $$('#stashItems [data-equip]').forEach(el=>el.onclick=()=>selectItem(+el.dataset.equip));
  $$('#stashItems [data-mat]').forEach(el=>el.onclick=()=>addMaterial(+el.dataset.mat));
  $$('#stashItems [data-sell]').forEach(el=>el.onclick=()=>sell(+el.dataset.sell));
- $('#shopItems').innerHTML=s.shop.map((offer,i)=>{const d=ITEMS[offer.type];return '<button class="shop-item" data-buy="'+i+'" '+(!prep||offer.sold||s.gold<d.price?'disabled':'')+'><span class="icon">'+d.icon+'</span><b>'+d.name+'</b><small>'+(offer.sold?'售罄':'🪙 '+d.price)+'</small></button>'}).join('');
+ $('#shopItems').innerHTML=s.shop.map((offer,i)=>{const d=ITEMS[offer.type];return '<button class="shop-item" data-buy="'+i+'" '+(!prep||offer.sold||s.gold<d.price?'disabled':'')+'><span class="icon">'+gearArt(offer.type)+'</span><b>'+d.name+'</b><small>'+(offer.sold?'售罄':'🪙 '+d.price)+'</small></button>'}).join('');
  $$('#shopItems [data-buy]').forEach(el=>el.onclick=()=>buy(+el.dataset.buy));
  $('#repairGate').disabled=!prep||s.gate===s.maxGate||s.gold<8;
- const parts=selectedParts();for(let i=0;i<2;i++){const slot=$('#material'+(i===0?'A':'B')),p=parts[i];slot.classList.toggle('filled',!!p);slot.innerHTML=p?'<span>'+ITEMS[p.type].icon+'</span><small>'+ITEMS[p.type].name+'</small>':'<span>＋</span><small>材料 '+(i===0?'A':'B')+'</small>'}
+ const parts=selectedParts();for(let i=0;i<2;i++){const slot=$('#material'+(i===0?'A':'B')),p=parts[i];slot.classList.toggle('filled',!!p);slot.innerHTML=p?'<span>'+gearArt(p.type)+'</span><small>'+ITEMS[p.type].name+'</small>':'<span>＋</span><small>材料 '+(i===0?'A':'B')+'</small>'}
  const result=recipeOf(...parts);
  $('#craftResult').classList.toggle('matched',!!result);
- $('#craftResult').innerHTML=result?'<b>'+ITEMS[result[2]].icon+' '+ITEMS[result[2]].name+'</b><small>耗费 '+result[3]+' 金币 · '+ITEMS[result[2]].desc+'</small>':parts.length===2?'<b>没有匹配的配方</b><small>点击「查看配方图」寻找可行的合成路线</small>':'<b>选择两件材料</b><small>点击仓库物品的「作材料」，自动预览配方</small>';
+ $('#craftResult').innerHTML=result?'<div class="forge-art">'+gearArt(result[2])+'</div><b>'+ITEMS[result[2]].name+'</b><small>耗费 '+result[3]+' 金币 · '+ITEMS[result[2]].desc+'</small>':parts.length===2?'<b>没有匹配的配方</b><small>点击「查看配方图」寻找可行的合成路线</small>':'<b>选择两件材料</b><small>点击仓库物品的「作材料」，自动预览配方</small>';
  $('#combineBtn').disabled=!prep||!result||s.gold<result[3];
  $('#combineBtn').textContent=result?'⚒ 合成 '+ITEMS[result[2]].name+' · 🪙 '+result[3]:'⚒ 合成装备';
  $('#clearMaterials').disabled=!prep||!s.materials.length;
@@ -240,17 +288,17 @@ function render(){
 }
 function openDialog(mode){
  modalMode=mode;pausedByDialog=s&&s.phase==='battle'&&!gamePaused;if(pausedByDialog){gamePaused=true;$('#pauseBtn').textContent='▶ 继续';}$('#overlay').classList.remove('hidden');$('#overlay').setAttribute('aria-hidden','false');let body='',title='';
- if(mode==='guide'){title='新手上路 · 四步守住城门';body='<div class="guide-step"><i>1</i><div><strong>先摆装备，再开始波次</strong><p>打开下方背包，把武器拖进或点入格子。弓弩负责物理射击，法杖绕过护甲，盾牌能减轻漏怪伤害。</p></div></div><div class="guide-step"><i>2</i><div><strong>看着怪物从右边冲锋</strong><p>装备自动攻击，你可以看到弹道、血条、减速与范围爆炸。漏过城门的怪物会消耗城门生命。交战中不能重新布阵。</p></div></div><div class="guide-step"><i>3</i><div><strong>融合装备，走不同合成分支</strong><p>点击仓库两件装备的「作材料」，按配方花金币合成。合成会真正消耗旧装备，成品回到仓库；高阶装备更强，但要重新布局。</p></div></div><div class="guide-step"><i>4</i><div><strong>打过一波，领一件战利品</strong><p>战斗结束三选一领取装备，夜市同步刷新。每五波有首领；没有终点，尽量挑战最佳波次。关闭浏览器后最佳记录与怪物图鉴仍保留。</p></div></div>'}
+ if(mode==='guide'){title='新手上路 · 四步守住城门';body='<div class="guide-step"><i>1</i><div><strong>先摆装备，再开始波次</strong><p>打开下方背包，选择武器，再点入格子。弓弩负责物理射击，法杖绕过护甲，盾牌能减轻漏怪伤害。</p></div></div><div class="guide-step"><i>2</i><div><strong>看着怪物从右边冲锋</strong><p>装备自动攻击，你可以看到弹道、血条、减速与范围爆炸。漏过城门的怪物会消耗城门生命。交战中不能重新布阵。</p></div></div><div class="guide-step"><i>3</i><div><strong>融合装备，走不同合成分支</strong><p>点击仓库两件装备的「作材料」，按配方花金币合成。合成会真正消耗旧装备，成品回到仓库；高阶装备更强，但要重新布局。</p></div></div><div class="guide-step"><i>4</i><div><strong>打过一波，领一件战利品</strong><p>战斗结束三选一领取装备，夜市同步刷新。每五波有首领；没有终点，尽量挑战最佳波次。关闭浏览器后最佳记录与怪物图鉴仍保留。</p></div></div>'}
  else if(mode==='recipes'){title='装备合成路线图';body='<p class="micro">每次消耗两件装备与金币。材料无论是否装备都可以合成，输出装备自动回到仓库。<strong>合成是选择，不总是强化：</strong>高阶装备可能失去低阶物品的相邻光环效果。</p>';
  for(const tier of [2,3,4]){const recipes=RECIPES.filter(r=>ITEMS[r[2]].tier===tier);
  body+='<div class="recipe-group"><h3>阶级 '+tier+' / '+(tier===2?'基础重铸':tier===3?'元素进阶':'终极机关')+'</h3><div class="recipe-grid">';
  for(const r of recipes){const sources=[r[0],r[1]],counts={};for(const it of s.items)counts[it.type]=(counts[it.type]||0)+1;const possible=sources.every(t=>{const n=counts[t]||0;counts[t]=n-1;return n>0})&&s.gold>=r[3];
- body+='<div class="recipe'+(possible?' match':'')+'"><span class="formula">'+ITEMS[r[0]].icon+' + '+ITEMS[r[1]].icon+' → '+ITEMS[r[2]].icon+'</span><b>'+ITEMS[r[0]].name+' + '+ITEMS[r[1]].name+' → '+ITEMS[r[2]].name+'</b><small>金币 '+r[3]+' · '+ITEMS[r[2]].desc+(possible?' · ✓ 当前可合成':'')+'</small></div>'}body+='</div></div>'}}
+ body+='<div class="recipe'+(possible?' match':'')+'"><span class="formula">'+gearArt(r[0])+' <i>+</i> '+gearArt(r[1])+' <i>→</i> '+gearArt(r[2])+'</span><b>'+ITEMS[r[0]].name+' + '+ITEMS[r[1]].name+' → '+ITEMS[r[2]].name+'</b><small>金币 '+r[3]+' · '+ITEMS[r[2]].desc+(possible?' · ✓ 当前可合成':'')+'</small></div>'}body+='</div></div>'}}
  else if(mode==='bestiary'){title='怪物图鉴 · 永夜来客';body='<p class="micro">怪物初次出现在战场时自动记录。未遇到的怪物将隐藏具体能力和弱点。</p><div class="codex-grid">';
  for(const type of Object.keys(MONSTERS)){const m=MONSTERS[type],seen=s.discovered.has(type);
- body+='<div class="codex-card'+(seen?'':' unknown')+'"><div class="codex-avatar">'+(seen?m.icon:'❔')+'</div><div class="codex-copy"><b>'+(seen?m.name:'尚未遇见')+'</b><small>'+(seen?('生命 '+m.hp+' · 护甲 '+m.armor+' · 破门 '+m.leak):'未知威胁')+'</small><p>'+(seen?m.flavor:'再多守住几波，图鉴将自动解锁。')+'</p>'+(seen?'<div class="codex-tag">克制建议：'+m.counter+'</div>':'')+'</div></div>'}body+='</div>'}
+ body+='<div class="codex-card'+(seen?'':' unknown')+'"><div class="codex-avatar">'+(seen?monsterArt(type):monsterArt('unknown'))+'</div><div class="codex-copy"><b>'+(seen?m.name:'尚未遇见')+'</b><small>'+(seen?('生命 '+m.hp+' · 护甲 '+m.armor+' · 破门 '+m.leak):'未知威胁')+'</small><p>'+(seen?m.flavor:'再多守住几波，图鉴将自动解锁。')+'</p>'+(seen?'<div class="codex-tag">克制建议：'+m.counter+'</div>':'')+'</div></div>'}body+='</div>'}
  else if(mode==='result'){title='防线失守';body='<div class="result-view"><div class="hero">🌑</div><h3>你坚守到了第 '+s.wave+' 波</h3><p>累计消灭 '+s.kills+' 只怪物，城门承受了 '+s.totalLeaks+' 点伤害。当前最佳：通关第 '+s.best+' 波。调整合成路线后可以再试一次。</p><button id="restartBtn" class="button gold">重新守夜 · 从第1波开始 ↻</button></div>'}
- else if(mode==='reward'){title='第 '+s.wave+' 波守住了！';const opt=rewardChoices();body='<div class="result-view"><div class="hero">🌅</div><h3>黎明短暂降临</h3><p>防线尚存 '+s.gate+'/'+s.maxGate+' 点生命。获得守夜奖励 '+s.lastResult.award+' 金币，再从三件装备中挑选一件。</p></div><div class="reward-grid">'+opt.map(type=>'<button class="reward-card" data-reward="'+type+'"><span>'+ITEMS[type].icon+'</span><b>'+ITEMS[type].name+'</b><small>'+ITEMS[type].desc+'</small></button>').join('')+'</div>'}
+ else if(mode==='reward'){title='第 '+s.wave+' 波守住了！';const opt=rewardChoices();body='<div class="result-view"><div class="hero">🌅</div><h3>黎明短暂降临</h3><p>防线尚存 '+s.gate+'/'+s.maxGate+' 点生命。获得守夜奖励 '+s.lastResult.award+' 金币，再从三件装备中挑选一件。</p></div><div class="reward-grid">'+opt.map(type=>'<button class="reward-card" data-reward="'+type+'"><span class="reward-art">'+gearArt(type)+'</span><b>'+ITEMS[type].name+'</b><small>'+ITEMS[type].desc+'</small></button>').join('')+'</div>'}
  $('#dialogTitle').textContent=title;$('#modalEyebrow').textContent={guide:'GUIDE / HOW TO SURVIVE',recipes:'FORGE / SYNTHESIS TREE',bestiary:'MONSTER ARCHIVE / DISCOVERIES',reward:'DAYBREAK / EQUIPMENT REWARD',result:'LAST DEFENSE / DEFEAT'}[mode]||'NIGHTWATCH';
  $('#modalBody').innerHTML=body;
  $$('#modalBody [data-reward]').forEach(el=>el.onclick=()=>pickReward(el.dataset.reward));
