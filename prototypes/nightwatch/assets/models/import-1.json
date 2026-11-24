@@ -1,0 +1,77 @@
+{
+  "manifest": [
+    {
+      "dest": "defenders/bow",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/WatchTower_FirstAge_Level1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.65,
+      "sha": "00caa73883cb5b4a79591d876dead0805c1dbd4b",
+      "bytes": 38744,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/storm",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.65,
+      "sha": "e2bb4c16abbfa1d5e241d7f213c15e8730dee655",
+      "bytes": 10248,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/shield",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/Wall_FirstAge.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.8,
+      "sha": "77838a41d2255ab46f05b270142d77655df13825",
+      "bytes": 18624,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/repeater",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/WatchTower_FirstAge_Level2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.72,
+      "sha": "773dd6976fc0ea93a660f60f1510f296bf63258c",
+      "bytes": 53188,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/staff",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.55,
+      "sha": "2e873bebe1ccecef0c4099f3e9cdde3141abf75c",
+      "bytes": 5208,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/bastion",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/Wall_SecondAge.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.88,
+      "sha": "de297be6ed66f93bc2f77e7d84b8d35de16ebd04",
+      "bytes": 17992,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    }
+  ],
+  "fail": []
+}
