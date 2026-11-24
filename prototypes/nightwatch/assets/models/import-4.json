@@ -1,0 +1,107 @@
+{
+  "manifest": [
+    {
+      "dest": "supports/ember",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal3.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.35,
+      "sha": "99012b4ba800aa1187185f8b30334e0bb1962cee",
+      "bytes": 3084,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "enemies/mage",
+      "src": "ilrein/warptracker",
+      "path": "public/models/skeleton.glb",
+      "ref": "71bbfbdfacd118196994b26da68eec1876d55c6b",
+      "ratio": 0.5,
+      "sha": "614f88275a0def46d6e0be83efe5ed3755c43e91",
+      "bytes": 189404,
+      "clips": [
+        "SkeletonArmature|SkeletonArmature|Skeleton_Attack",
+        "SkeletonArmature|SkeletonArmature|Skeleton_Death",
+        "SkeletonArmature|SkeletonArmature|Skeleton_Idle",
+        "SkeletonArmature|SkeletonArmature|Skeleton_Running",
+        "SkeletonArmature|SkeletonArmature|Skeleton_Spawn"
+      ],
+      "skins": 1,
+      "extensions": []
+    },
+    {
+      "dest": "supports/venom",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Potion1_Filled.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.35,
+      "sha": "7e2b9676afc0d607e78de0a55c075761ebad75e3",
+      "bytes": 37360,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "supports/whet",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/Rock_1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.35,
+      "sha": "074ed892d5f0919cbf06f46883728550bd0cc9ad",
+      "bytes": 5516,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "projectiles/arrow",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Arrow.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.25,
+      "sha": "7f542fdc1af6dbac55c545a0bf66c6ca77c2d03a",
+      "bytes": 16836,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "projectiles/bolt",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Arrow_Golden.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.3,
+      "sha": "c903c80d48b5f166f3482ab9974abbb1dc27a7d6",
+      "bytes": 14756,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "supports/brazier",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/medieval_village_pack/Bonfire_Lit.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.55,
+      "sha": "f1d44c5f2f5edfa18eb1b56e9d55faf9585b9255",
+      "bytes": 50168,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "projectiles/arcane_orb",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/platformer_game_pack/Gem_Pink.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.14,
+      "sha": "72bf589112a44adcbb2ea266594e2bc87f41c4fd",
+      "bytes": 2720,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    }
+  ],
+  "fail": []
+}
