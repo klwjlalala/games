@@ -1,0 +1,101 @@
+{
+  "manifest": [
+    {
+      "dest": "projectiles/ice_shard",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/platformer_game_pack/Gem_Blue.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.2,
+      "sha": "4646943cb9550fa000dbe615ecaa9e7c2d820745",
+      "bytes": 4256,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "projectiles/fire_bolt",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/platformer_game_pack/Cannonball.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.22,
+      "sha": "80261f837f0456f48883b873bd0b371aab445c41",
+      "bytes": 8592,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "projectiles/poison_orb",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/platformer_game_pack/Gem_Green.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.18,
+      "sha": "6a0d26f62579a4e7fe2688efdbaa1727699cf234",
+      "bytes": 4736,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "projectiles/meteor",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/Rock_2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.35,
+      "sha": "a326746bdd8fb462beaa8e507ea186744df087c3",
+      "bytes": 6100,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "pickups/gold_coin",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Coin.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.15,
+      "sha": "47960d1081c5ed2941de450e63b6332d5122083a",
+      "bytes": 22304,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "pickups/gold_pile",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/modular_dungeon_1/Coin_Pile.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.28,
+      "sha": "0045eb83940aa0e97dfb98c21818161efef8bc92",
+      "bytes": 168888,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "pickups/loot_chest",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Chest_Closed.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.45,
+      "sha": "544e63ca39289d37837dc4c88f7d716e8386511b",
+      "bytes": 96748,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/castle_gate",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/WallTowers_DoorClosed_SecondAge.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 3,
+      "sha": "b41a63544aa4cfd60ca2a704802fcef8ca7132e9",
+      "bytes": 147652,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    }
+  ],
+  "fail": []
+}
