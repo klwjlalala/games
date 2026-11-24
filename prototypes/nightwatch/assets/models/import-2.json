@@ -1,0 +1,151 @@
+{
+  "manifest": [
+    {
+      "dest": "enemies/shell",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/easy_enemies_pack/Spider.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.65,
+      "sha": "2dcf260a0dc6f6aaaeaa763c3dee33e04fd38feb",
+      "bytes": 449008,
+      "clips": [
+        "SpiderArmature|Spider_Attack",
+        "SpiderArmature|Spider_Death",
+        "SpiderArmature|Spider_Idle",
+        "SpiderArmature|Spider_Jump",
+        "SpiderArmature|Spider_Walk"
+      ],
+      "skins": 1,
+      "extensions": []
+    },
+    {
+      "dest": "enemies/rat",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/easy_enemies_pack/Rat.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.45,
+      "sha": "a97c5bfe37ca8639b408bd81a54be39c50858000",
+      "bytes": 550764,
+      "clips": [
+        "RatArmature|Rat_Attack",
+        "RatArmature|Rat_Death",
+        "RatArmature|Rat_Idle",
+        "RatArmature|Rat_Jump",
+        "RatArmature|Rat_Run",
+        "RatArmature|Rat_Walk"
+      ],
+      "skins": 1,
+      "extensions": []
+    },
+    {
+      "dest": "enemies/wolf",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/animals_pack/Wolf.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.7,
+      "sha": "c54b02936167a3b0d9a7e8d467432ba4fa788d6b",
+      "bytes": 608660,
+      "clips": [
+        "AnimalArmature|Attack",
+        "AnimalArmature|Death",
+        "AnimalArmature|Eating",
+        "AnimalArmature|Gallop",
+        "AnimalArmature|Gallop_Jump",
+        "AnimalArmature|Idle",
+        "AnimalArmature|Idle_2",
+        "AnimalArmature|Idle_2_HeadLow",
+        "AnimalArmature|Idle_HitReact_Left",
+        "AnimalArmature|Idle_HitReact_Right",
+        "AnimalArmature|Jump_ToIdle",
+        "AnimalArmature|Walk"
+      ],
+      "skins": 1,
+      "extensions": []
+    },
+    {
+      "dest": "enemies/bat",
+      "src": "euuuuuuan/cairnfall-public",
+      "path": "assets/vendor/quaternius_monsters/Bat.glb",
+      "ref": "8ee4cfd789282c59632a9339e61564b7d6c1acfe",
+      "ratio": 0.58,
+      "sha": "685a0404904c60a20f32f7feba48697dd29ca4f2",
+      "bytes": 307540,
+      "clips": [
+        "2H_Melee_Attack_Chop",
+        "BatArmature|BatArmature|Bat_Attack2",
+        "BatArmature|BatArmature|Bat_Hit",
+        "Death_A",
+        "Idle"
+      ],
+      "skins": 2,
+      "extensions": []
+    },
+    {
+      "dest": "enemies/boss",
+      "src": "euuuuuuan/cairnfall-public",
+      "path": "assets/vendor/quaternius_monsters/Dragon.glb",
+      "ref": "8ee4cfd789282c59632a9339e61564b7d6c1acfe",
+      "ratio": 0.92,
+      "sha": "499df45a338da67a6a36600d168368f017fedfe0",
+      "bytes": 324860,
+      "clips": [
+        "2H_Melee_Attack_Chop",
+        "Death_A",
+        "DragonArmature|DragonArmature|Dragon_Attack2",
+        "DragonArmature|DragonArmature|Dragon_Hit",
+        "Idle"
+      ],
+      "skins": 2,
+      "extensions": []
+    },
+    {
+      "dest": "enemies/wisp",
+      "src": "ilrein/warptracker",
+      "path": "public/models/ghost.glb",
+      "ref": "71bbfbdfacd118196994b26da68eec1876d55c6b",
+      "ratio": 0.45,
+      "sha": "64a689730f9520be17e2628fa861ed9b1930054c",
+      "bytes": 288500,
+      "clips": [
+        "Death",
+        "Fast_Flying",
+        "Flying_Idle",
+        "Headbutt",
+        "HitReact",
+        "No",
+        "Punch",
+        "Yes"
+      ],
+      "skins": 1,
+      "extensions": []
+    },
+    {
+      "dest": "enemies/brute",
+      "src": "Hakhyun-Kim/constellation-defense",
+      "path": "assets/models/quaternius-yeti.glb",
+      "ref": "8ad1c93e382e2a6a5755882c1b9b2922877fab6e",
+      "ratio": 0.85,
+      "sha": "a497b06d544af508e561decee951fc1f27179e02",
+      "bytes": 121520,
+      "clips": [
+        "Bite_Front",
+        "Dance",
+        "Death",
+        "HitRecieve",
+        "Idle",
+        "Jump",
+        "No",
+        "Walk",
+        "Yes"
+      ],
+      "skins": 1,
+      "extensions": []
+    }
+  ],
+  "fail": [
+    [
+      "enemies/mage",
+      "Error: invalid header/length 0"
+    ]
+  ]
+}
