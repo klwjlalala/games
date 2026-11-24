@@ -1,0 +1,101 @@
+{
+  "manifest": [
+    {
+      "dest": "defenders/flamebow",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/WatchTower_FirstAge_Level3.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.78,
+      "sha": "5eee64b5e84d509c8a994726c627947d9245a9da",
+      "bytes": 96872,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/plague",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal4.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.75,
+      "sha": "3abbf4ef2696346c332fdb144c9e37fd5dd3c81e",
+      "bytes": 4028,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/thunderfire",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/platformer_game_pack/Cannon.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.82,
+      "sha": "bad0476268746f5349d2cb5ffa2e297f6c291d20",
+      "bytes": 57436,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/icebow",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/WatchTower_SecondAge_Level2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.78,
+      "sha": "4910f24cc4abd380a5678149dd499322b56f0a96",
+      "bytes": 204912,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/aurora",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal5.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.8,
+      "sha": "48baea3c38f7e989367da805fdac50b03f9d9cb0",
+      "bytes": 2968,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/apocalypse",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/WatchTower_SecondAge_Level3.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.85,
+      "sha": "d3b8a109e474997df0b8fda997881e69305b6052",
+      "bytes": 189788,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/citadel",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/modular_medieval_buildings_pack/WallBricks.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.9,
+      "sha": "baa01294063fa29eb3452a20531ab7c869cfeeba",
+      "bytes": 11716,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "defenders/furnacewall",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/modular_medieval_buildings_pack/TallWallBricks.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.9,
+      "sha": "ac8685166f6309c3a821b1e366295f524a247911",
+      "bytes": 16732,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    }
+  ],
+  "fail": []
+}
