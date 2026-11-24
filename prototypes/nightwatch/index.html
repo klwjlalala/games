@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0b111e">
 <meta name="description" content="背包合成与无限波次塔防：怪物实时冲向城门，布置装备、合成火焰弩与雷霆法杖、解锁怪物图鉴。"><title>背包守夜人 · 永夜防线</title>
-<link rel="stylesheet" href="./style.css"></head>
+<link rel="stylesheet" href="./style.css?v=3"></head>
 <body>
 <div class="sky-halo"></div>
-<header class="top"><a href="../" class="brand"><span class="brand-glyph">✦</span> PLAYROOM <span class="sep">/</span> 永夜防线</a><div class="top-meta"><span class="build-pill">EVOLVED BUILD · V2</span><a href="../" class="subtle-link">← 返回实验室</a></div></header>
+<header class="top"><a href="../" class="brand"><span class="brand-glyph"><span>✧</span></span> NIGHT WATCH <span class="sep">/</span> 守夜录</a><div class="top-meta"><span class="build-pill">THE MOONLIT EDITION</span><a href="../" class="subtle-link">← 返回实验室</a></div></header>
 <main>
-<section class="intro"><div><div class="overline">THE LAST WALL / ENDLESS DEFENSE</div><h1>背包守夜人 <em>永夜防线</em></h1><p>天黑之后，它们会一波接一波冲过来。能活过多少个夜晚，取决于你把什么塞进背包。</p></div><button class="button alt" id="showGuide">◉ 玩法说明</button></section>
+<section class="intro"><div><div class="overline">CHRONICLE I · THE LAST WATCH</div><h1>背包守夜人 <em>永夜防线</em></h1><p>群山尽头，月色沉入雾中。长夜不息，唯有你守住最后一扇城门。</p></div><button class="button alt" id="showGuide">◉ 玩法说明</button></section>
 <section class="arena-shell">
   <div class="arena-bar">
     <div class="wave-ident"><span class="on-dot"></span><strong id="waveHeading">第 1 波 · 黎明前</strong><span class="bar-small" id="waveTag">准备中</span></div>
@@ -20,29 +20,29 @@
   <div class="arena-controls"><div class="forecast" id="forecast"><span>下一波：</span><b id="forecastText">正在侦察...</b></div><div class="play-buttons"><button class="button ghost" id="pauseBtn" disabled>⏸ 暂停</button><button class="button ghost" id="speedBtn" disabled>速度 ×1</button><button class="button primary" id="startWaveBtn">⚔ 开始第 1 波</button></div></div>
 </section>
 <section class="work-grid">
- <section class="panel bag-panel"><div class="panel-top"><div><div class="overline">01 / INVENTORY TACTICS</div><h2>装备背包 <small>5 × 4</small></h2></div><span id="bagUsage" class="inline-tag">0 / 20 格</span></div>
- <p class="micro">选择仓库装备，再点空位放置。位置会影响攻击、减速与燃烧联动。点击已装备物品可取下。</p>
+ <section class="panel bag-panel"><div class="panel-top"><div><div class="overline">I.  ARMOURY / 装备</div><h2>装备背包 <small>5 × 4</small></h2></div><span id="bagUsage" class="inline-tag">0 / 20 格</span></div>
+ <p class="micro">将装备放入格子。相邻元素会激发共鸣；点击装备可取回仓库。</p>
  <div id="bagGrid" class="bag-grid" aria-label="五列四行装备背包"></div>
  <div class="bag-controls"><button id="rotateGear" class="button ghost small">↻ 旋转所选</button><button id="unequipAll" class="button ghost small">清空布局</button></div>
  <div class="build-preview"><div class="mini-title">当前防线属性 <small>实时结算</small></div><div id="buildStats" class="build-stats"></div><p id="buildNotes" class="micro">摆放至少一件攻击装备以开启战斗。</p></div>
  </section>
- <section class="panel stash-panel"><div class="panel-top"><div><div class="overline">02 / EQUIPMENT & SUPPLY</div><h2>装备仓库</h2></div><span id="stashCount" class="inline-tag">4 件</span></div>
- <p class="micro">装备会永久保留至出售或合成；新波次会出现新的战利品与补给。</p>
+ <section class="panel stash-panel"><div class="panel-top"><div><div class="overline">II.  SUPPLY / 补给</div><h2>装备仓库</h2></div><span id="stashCount" class="inline-tag">4 件</span></div>
+ <p class="micro">战利品与夜市补给存放于此。可装备、熔铸或出售。</p>
  <div id="stashItems" class="stash-list"></div>
  <div class="shop-head"><h3>夜市补给</h3><button id="repairGate" class="button ghost small">修门 +5 · 🪙 8</button></div>
  <div class="shop-grid" id="shopItems"></div><p class="micro">商店每波刷新。合成材料可以来自背包或仓库，合成后需要重新装备。</p>
  </section>
- <section class="panel craft-panel"><div class="panel-top"><div><div class="overline">03 / FORGE & RESEARCH</div><h2>合成工坊</h2></div><button class="text-link" id="openCraftBook">查看配方图 ↗</button></div>
+ <section class="panel craft-panel"><div class="panel-top"><div><div class="overline">III.  THE FORGE / 锻造</div><h2>合成工坊</h2></div><button class="text-link" id="openCraftBook">查看配方图 ↗</button></div>
  <div class="forge-slot-row"><div class="forge-slot" id="materialA"><span>＋</span><small>材料 A</small></div><span class="forge-plus">+</span><div class="forge-slot" id="materialB"><span>＋</span><small>材料 B</small></div></div>
  <div class="forge-arrow">↓</div><div id="craftResult" class="forge-result"><b>选择两件材料</b><small>点击仓库物品的「作材料」，自动预览配方</small></div>
  <button class="button gold full" id="combineBtn" disabled>⚒ 合成装备</button><button class="button ghost full subtle" id="clearMaterials">清除所选材料</button>
- <div class="bestiary-teaser"><div class="mini-title">怪物图鉴 <small id="bestiaryCounter">0 / 8 已发现</small></div><p>观察怪物移动速度、护甲及特殊能力，针对性配置背包。</p><button class="button ghost full" id="openBestiary">📖 打开怪物图鉴 →</button></div>
+ <div class="bestiary-teaser"><div class="mini-title">怪物图鉴 <small id="bestiaryCounter">0 / 8 已发现</small></div><p>记录每一位夜色来客，寻找它们的弱点。</p><button class="button ghost full" id="openBestiary">📖 打开怪物图鉴 →</button></div>
  <div class="hint-block"><strong>玩法关键</strong><p>单纯堆攻击无法应对全部敌人：重甲惧怕法术，迅捷怪需要减速，密集怪群需要范围伤害。高阶合成能节省空间，但也会消耗用于联动的材料。</p></div>
  </section>
 </section>
-<div class="footer-note">可直接在浏览器玩 · 自动保存最佳波次与图鉴 · 所有战斗与合成计算均在本地执行</div>
+<div class="footer-note">THE LAST WATCH  ·  长夜不息，灯火不灭  ·  最佳波次与图鉴自动保存</div>
 </main>
 <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="modal"><div class="modal-head"><div><div class="overline" id="modalEyebrow">NIGHT WATCH ARCHIVES</div><h2 id="dialogTitle">图鉴</h2></div><button id="closeOverlay" class="close-button" aria-label="关闭">✕</button></div><div id="modalBody" class="modal-content"></div></div></div>
 <div id="tip" class="tip" role="status"></div>
-<script src="./engine.js" defer></script><script src="./render.js" defer></script>
+<script src="./engine.js?v=3" defer></script><script src="./render.js?v=3" defer></script>
 </body></html>
