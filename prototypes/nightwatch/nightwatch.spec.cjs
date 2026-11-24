@@ -59,3 +59,29 @@ test('mobile viewport does not overflow and retains all primary controls',async(
  const layout=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:window.innerWidth}));
  expect(layout.scroll).toBeLessThanOrEqual(layout.width+2);
 });
+
+
+test('Moonlit Edition desktop composition and multi-slot illustrated gear',async({page},testInfo)=>{
+ await page.setViewportSize({width:1440,height:1000});await page.reload();
+ await expect(page.locator('#bagGrid .bag-art')).toHaveCount(3);
+ await expect(page.locator('#stashItems .gear-art')).toHaveCount(5);
+ const b=await page.evaluate(()=>{
+  const arena=document.querySelector('.arena-shell').getBoundingClientRect();
+  const bag=document.querySelector('.bag-panel').getBoundingClientRect();
+  const cell=document.querySelector('[data-cell="0,0"]').getBoundingClientRect();
+  const item=document.querySelector('[data-cell="0,0"] .bag-art').getBoundingClientRect();
+  return {arenaRight:arena.right,bagLeft:bag.left,arenaTop:arena.top,bagTop:bag.top,itemHeight:item.height,cellHeight:cell.height,scrollWidth:document.documentElement.scrollWidth};
+ });
+ expect(b.bagLeft).toBeGreaterThanOrEqual(b.arenaRight-1);
+ expect(Math.abs(b.bagTop-b.arenaTop)).toBeLessThan(4);
+ expect(b.itemHeight).toBeGreaterThan(b.cellHeight*1.7);
+ expect(b.scrollWidth).toBeLessThanOrEqual(1442);
+ await page.screenshot({path:testInfo.outputPath('moonlit-desktop.png'),fullPage:true});
+ await page.locator('#openCraftBook').click();
+ await expect(page.locator('.recipe .gear-art')).toHaveCount(45);
+ await page.screenshot({path:testInfo.outputPath('moonlit-recipes.png'),fullPage:true});
+ await page.locator('#closeOverlay').click();
+ await page.locator('#openBestiary').click();
+ await expect(page.locator('.codex-avatar .monster-art')).toHaveCount(8);
+ await page.screenshot({path:testInfo.outputPath('moonlit-bestiary.png'),fullPage:true});
+});
