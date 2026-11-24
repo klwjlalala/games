@@ -1,0 +1,125 @@
+{
+  "manifest": [
+    {
+      "dest": "supports/frost",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.4,
+      "sha": "2e873bebe1ccecef0c4099f3e9cdde3141abf75c",
+      "bytes": 5208,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "supports/glacial",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.45,
+      "sha": "e2bb4c16abbfa1d5e241d7f213c15e8730dee655",
+      "bytes": 10248,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "supports/blight",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal4.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.45,
+      "sha": "3abbf4ef2696346c332fdb144c9e37fd5dd3c81e",
+      "bytes": 4028,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "supports/forge",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal5.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.45,
+      "sha": "48baea3c38f7e989367da805fdac50b03f9d9cb0",
+      "bytes": 2968,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "projectiles/thunder_orb",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/rpg_items_pack/Crystal3.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.22,
+      "sha": "99012b4ba800aa1187185f8b30334e0bb1962cee",
+      "bytes": 3084,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/castle_wall",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/modular_medieval_buildings_pack/WallBricks.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 1,
+      "sha": "baa01294063fa29eb3452a20531ab7c869cfeeba",
+      "bytes": 11716,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/rock_b",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/Rock_2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.25,
+      "sha": "a326746bdd8fb462beaa8e507ea186744df087c3",
+      "bytes": 6100,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/torch",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/medieval_village_pack/Bonfire_Lit.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.18,
+      "sha": "f1d44c5f2f5edfa18eb1b56e9d55faf9585b9255",
+      "bytes": 50168,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/ruins",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/modular_medieval_buildings_pack/SmallSquareTowerBricks.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 2,
+      "sha": "1aa80e4f95c68165c0a4c7b7d5392d9944757dba",
+      "bytes": 32676,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/mountain",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/real_time_strategy_pack/Mountain_Group_2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 4,
+      "sha": "099f1c97e2457bc2d8bc105584b927239a6d025e",
+      "bytes": 58428,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    }
+  ],
+  "fail": []
+}

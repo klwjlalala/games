@@ -1,0 +1,101 @@
+{
+  "manifest": [
+    {
+      "dest": "environment/watchtower",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/modular_medieval_buildings_pack/WatchTowerWRoof.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.8,
+      "sha": "0e307ec32cfc058735ee5a62a5b078a26b9de3fe",
+      "bytes": 23952,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/pine_tree_b",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/PineTree_2.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.65,
+      "sha": "ea16e5027341208450ace459079cd3ca97769949",
+      "bytes": 93688,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/pine_tree_a",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/PineTree_1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.8,
+      "sha": "ad802951468ccc02465a2a0ee1b4a7395acc28fb",
+      "bytes": 106060,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/rock_a",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/Rock_Moss_1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.65,
+      "sha": "6416ffe51639c45249138b092f8292ec62c4db62",
+      "bytes": 6560,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/dead_tree",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/CommonTree_Dead_1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.65,
+      "sha": "ba2eaec8d0aeb03256dcfe40b48b7483ecd50f74",
+      "bytes": 129160,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/grass_clump",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/Grass.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.18,
+      "sha": "f448fddc97a22370d97fbc12e6a91f57ed2c06de",
+      "bytes": 12632,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/bush",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/nature_pack/Bush_1.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.4,
+      "sha": "db58091cfc310c34b4ce0339fded9dbd01991e0e",
+      "bytes": 21348,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "dest": "environment/banner",
+      "src": "trebeljahr/quaternius-showcase",
+      "path": "public/glb/modular_medieval_buildings_pack/Banner.glb",
+      "ref": "0128ca510d653bb04d6d1e4885bd8890b5050b4f",
+      "ratio": 0.25,
+      "sha": "360896683e05bb42b65edc9ae39c6d96600b07a7",
+      "bytes": 5248,
+      "clips": [],
+      "skins": 0,
+      "extensions": []
+    }
+  ],
+  "fail": []
+}

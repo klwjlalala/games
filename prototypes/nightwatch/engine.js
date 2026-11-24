@@ -209,7 +209,7 @@ function projectileHit(p,m){if(!m||m._dead)return;let targets=[m];if(p.splash){f
 }
 function enemyTarget(weapon){return s.monsters.filter(m=>!m._dead&&m.hp>0&&m.x-GATE<=weapon.range).sort((a,b)=>a.x-b.x)[0]||null}
 function shoot(w,tgt){const originY=w.y,originX=186+(w.lane%3)*8;const magic=w.element==='magic';
- s.shots.push({x:originX,y:originY,target:tgt.id,targetX:tgt.x,targetY:tgt.y,life:1.35,vel:magic?900:1100,damage:w.damage,element:w.element,burn:w.burn,poison:w.poison,slow:w.slow,splash:w.splash,chain:w.chain,color:w.slow?'#96e4ef':w.burn?'#ffb36d':magic?'#bba3ff':'#ffd59b',r:w.splash?7:4});
+ s.shots.push({sourceId:w.itemId,sourceType:w.type,originX,originY,x:originX,y:originY,target:tgt.id,targetX:tgt.x,targetY:tgt.y,life:1.35,vel:magic?900:1100,damage:w.damage,element:w.element,burn:w.burn,poison:w.poison,slow:w.slow,splash:w.splash,chain:w.chain,color:w.slow?'#96e4ef':w.burn?'#ffb36d':magic?'#bba3ff':'#ffd59b',r:w.splash?7:4});
  w.fireCount++;s.bursts.push({x:originX,y:originY,r:16,life:.14,max:.14,color:magic?'#a59ff8':'#fff0b5'});
 }
 function updateBattle(dt){
