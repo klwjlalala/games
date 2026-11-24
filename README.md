@@ -81,3 +81,8 @@ python -m http.server 8080
 - `prototypes/playtest.spec.cjs`：Playwright Chromium 交互测试，覆盖页面切换、棋盘操作、补给选择、背包摆放、战斗和重置。
 - GitHub Actions：`.github/workflows/gameplay-test.yml`，每次更新原型会触发上述两类检查。
 - 评审结论与局限：`prototypes/PLAYTEST_REPORT.md`。自动化只能证明规则与交互可靠性，不能替代真实玩家对可玩性的判断。
+
+
+### Moonlit Edition · 月夜美术版（V3）
+
+保持 V2 波次、装备合成、伤害和经济规则，重绘可缓存的 Canvas 月下山景与哥特守望塔、八类怪物动画、22件原创 SVG 装备插画以及怪物图鉴。桌面端并排显示战场和背包；移动端采用单列布局。此次已通过规则回归和全部美术分支的模拟绘制检查；GitHub Actions Chromium 测试增加桌面、配方图、怪物图鉴截图与布局断言，真实浏览器截图验收仍待确认。
