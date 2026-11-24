@@ -79,7 +79,7 @@ function start(){
   // Existing shields still contribute global gate reduction, not a fabricated collision body.
   for(const it of equipped.filter(x=>['shield','bastion','citadel'].includes(x.type)))display.push({id:it.id,type:it.type,w:null,i:display.length,wall:true});
   for(const d of display){const key='g'+d.id;liveGunIds.add(key);let h=guns.get(key);if(h&&h.id!==d.type){disposeActor(guns,key);h=null;}if(!h)h=createActor(d.type,guns,key,'gun');
-   const row=d.i%3,col=Math.floor(d.i/3);h.root.position.set(.38+col*.92,0,row-1);h.root.rotation.y=0;
+   const row=d.i%3,col=Math.floor(d.i/3);h.root.position.set(.50+col,0,row-1);h.root.rotation.y=0;
    if(d.w&&d.w.fireCount!==undefined&&h.lastFire!==d.w.fireCount){if(h.lastFire>=0&&d.w.fireCount>h.lastFire)h.fire=t;h.lastFire=d.w.fireCount;}
    const f=t-h.fire,attacking=f>=0&&f<.28;const native=h.animation?.play(attacking?'attack':'idle');h.animation?.update(dt);
    h.motion.position.set(0,h.cfg.groundOffset,0);h.motion.rotation.set(0,0,0);h.motion.scale.set(1,1,1);
@@ -94,8 +94,8 @@ function start(){
    if((m.hitPulse||0)>(h.lastPulse||0)+.015)h.hit=.1;h.lastPulse=m.hitPulse||0;
    h.hit=Math.max(0,h.hit-dt);h.flash(h.hit>0?1:0);
    if(m.type==='mage'&&m.healCd>h.lastHeal+.5)h.fire=t;h.lastHeal=m.healCd;
-   const attack=t-h.fire<.45;let native=h.animation?.play(attack?'attack':'walk');
-   if(!native&&['bat','boss'].includes(m.type))h.animation?.play('idle');
+   const attack=t-h.fire<.45;const state=attack?'attack':'walk';const chosen=h.cfg.animations[state]?state:'idle';const native=chosen===state&&!!h.animation?.play(state);
+   if(chosen!==state)h.animation?.play(chosen);
    h.animation?.update(dt);
    h.motion.position.set(0,h.cfg.groundOffset,0);h.motion.rotation.set(0,0,0);h.motion.scale.set(1,1,1);
    if(!native){const q=t*(m.speed/TILE*5+3)+(m.bodyTime||0);h.motion.position.y+=Math.abs(Math.sin(q))*.035;h.motion.rotation.x=Math.sin(q)*.055;h.motion.rotation.z=Math.sin(q)*.035;if(attack)h.motion.position.x=.08*Math.sin(Math.PI*clamp((t-h.fire)/.45,0,1));}
@@ -103,7 +103,7 @@ function start(){
    syncDebug(key,h,'enemy',m.r*.5/TILE);
   }
   for(const [key,h] of enemies)if(!liveEnemies.has(key)){
-   enemies.delete(key);clearDebug(key);if(h.entity?.hp<=0){h.death=t;h.animation?.play('die');dying.push(h);const coin=assets.create('gold_coin');coin.root.position.copy(h.root.position);coin.origin=h.root.position.clone();coin.born=t;scene.add(coin.root);coins.push(coin);}else h.dispose();
+   enemies.delete(key);clearDebug(key);if(h.entity?.hp<=0){h.death=t;h.flash(0);h.animation?.play('die');dying.push(h);const coin=assets.create('gold_coin');coin.root.position.copy(h.root.position);coin.origin=h.root.position.clone();coin.born=t;scene.add(coin.root);coins.push(coin);}else h.dispose();
   }
   for(let i=dying.length-1;i>=0;i--){const h=dying[i],f=(t-h.death)/.7;if(f>=1){h.dispose();dying.splice(i,1);continue;}
    const native=h.animation?.play('die');h.animation?.update(dt);if(!native){h.motion.rotation.z=-Math.PI*.5*f;h.motion.scale.setScalar(1-.65*f);}h.fade(1-f);}
