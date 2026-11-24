@@ -64,5 +64,5 @@ function paint(t){const game=window.__nightwatch;if(!game)return;const s=game.st
  if(s.gateFlash>0){c.fillStyle='rgba(207,81,67,'+Math.min(.16,s.gateFlash*.25)+')';c.fillRect(0,0,W,H)}
  const vg=c.createLinearGradient(0,H-90,0,H);vg.addColorStop(0,'#0c181900');vg.addColorStop(1,'#0c1819d0');c.fillStyle=vg;c.fillRect(0,H-90,W,90)
 }
-canvas.width=W;canvas.height=H;window.drawScene=paint;window.__nightwatch.draw=()=>paint(performance.now()/1000);
+canvas.width=W;canvas.height=H;if(typeof drawScene==='function')drawScene=paint;window.drawScene=paint;window.__nightwatch.draw=()=>paint(performance.now()/1000);
 })();
