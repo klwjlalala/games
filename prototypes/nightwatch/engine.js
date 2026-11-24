@@ -184,7 +184,7 @@ function startWave(){if(s.phase!=='prepare')return;const b=calculate();if(!b.wea
 }
 function pause(){if(s.phase!=='battle')return;gamePaused=!gamePaused;$('#pauseBtn').textContent=gamePaused?'▶ 继续':'⏸ 暂停';$('#waveTag').textContent=gamePaused?'已暂停':'交战中'}
 function toggleSpeed(){if(s.phase!=='battle')return;speed=speed===1?2:1;$('#speedBtn').textContent='速度 ×'+speed}
-function encounter(m){if(!s.discovered.has(m.type)){s.discovered.add(m.type);save('codex',[...s.discovered]);$('#bestiaryCounter').textContent=s.discovered.size+' / 8 已发现';if(m.type==='boss')toastBattle('⚠ 永夜龙出现了！')} }
+function encounter(m){if(!s.discovered.has(m.type)){s.discovered.add(m.type);save('codex',[...s.discovered]);$('#bestiaryCounter').textContent=s.discovered.size+' / 8';if(m.type==='boss')toastBattle('⚠ 永夜龙出现了！')} }
 function spawnMonster(template){const d=MONSTERS[template.type],scale=1+(s.wave-1)*.16,boost=s.wave>5?Math.floor((s.wave-5)/5):0;
  const maxHp=Math.round(d.hp*scale),monster={id:++idSeq,type:template.type,lane:template.lane,x:1046+(Math.random()*35),y:LANES[template.lane],hp:maxHp,maxHp,armor:d.armor+boost,speed:d.speed*(1+Math.min(.32,(s.wave-1)*.014)),r:d.r,leak:d.leak,bounty:d.bounty,poison:0,poisonTime:0,burn:0,burnTime:0,slow:0,slowTime:0,healCd:2,bodyTime:Math.random()*6};
  s.monsters.push(monster);encounter(monster)
@@ -284,7 +284,7 @@ function render(){
  $('#combineBtn').disabled=!prep||!result||s.gold<result[3];
  $('#combineBtn').textContent=result?'⚒ 合成 '+ITEMS[result[2]].name+' · 🪙 '+result[3]:'⚒ 合成装备';
  $('#clearMaterials').disabled=!prep||!s.materials.length;
- $('#bestiaryCounter').textContent=s.discovered.size+' / 8 已发现';
+ $('#bestiaryCounter').textContent=s.discovered.size+' / 8';
 }
 function openDialog(mode){
  modalMode=mode;pausedByDialog=s&&s.phase==='battle'&&!gamePaused;if(pausedByDialog){gamePaused=true;$('#pauseBtn').textContent='▶ 继续';}$('#overlay').classList.remove('hidden');$('#overlay').setAttribute('aria-hidden','false');let body='',title='';
