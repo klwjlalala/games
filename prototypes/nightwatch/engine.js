@@ -192,7 +192,7 @@ function spawnMonster(template){const d=MONSTERS[template.type],scale=1+(s.wave-
 function vfx(x,y,color,count=7,spread=100){for(let i=0;i<count;i++){const angle=Math.random()*TAU,vel=spread*(.3+Math.random());s.particles.push({x,y,vx:Math.cos(angle)*vel,vy:Math.sin(angle)*vel,life:.4+Math.random()*.45,total:.85,color,size:1.5+Math.random()*3})}}
 function floatText(x,y,message,color='#fdd8a1'){s.particles.push({x,y,life:.9,total:.9,color,text:message,vx:(Math.random()-.5)*12,vy:-38,size:14})}
 function takeHit(m,damage,element){if(!m||m.hp<=0)return;let value=damage;if(element==='physical')value=Math.max(1,damage-m.armor);if(m.type==='wisp'&&element==='physical')value=Math.max(1,Math.round(value*.5));
- m.hp-=value;if(Math.random()<.34)floatText(m.x,m.y-20,Math.round(value),element==='magic'?'#a6cdfa':'#ffe0ac');
+ m.hp-=value;m.hitPulse=.22;if(Math.random()<.34)floatText(m.x,m.y-20,Math.round(value),element==='magic'?'#a6cdfa':'#ffe0ac');
  if(m.hp<=0){killMonster(m);return}vfx(m.x,m.y,'#e9b6a5',3,52)
 }
 function killMonster(m){if(m._dead)return;m._dead=true;s.gold+=m.bounty;s.kills++;vfx(m.x,m.y,'#ffc67d',13,170);floatText(m.x,m.y-28,'+'+m.bounty+'G','#ffe69c');
