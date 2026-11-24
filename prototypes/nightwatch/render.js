@@ -257,7 +257,7 @@ function drawOverlayStatus(t){
 }
 function drawScene(t){
  if(!s||!ctx)return;ctx.clearRect(0,0,W,H);drawBackground(t);
- ctx.save();ctx.shadowColor='#72ebc150';ctx.shadowBlur=17;drawGate(t);ctx.restore();
+ drawGate(t);
  drawTurrets(t);
  for(const m of s.monsters.slice().sort((a,b)=>a.y-b.y))drawMonster(m,t);
  drawProjectiles(t);drawParticles();
